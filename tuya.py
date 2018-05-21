@@ -85,7 +85,7 @@ class TuyaCache:
             try:
                 status = self._device.status()
                 return status
-            except ConnectionError:
+            except Exception as e:
                 if i+1 == 3:
                     raise ConnectionError("Failed to update status.")
 
